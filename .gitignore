@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+*.db
+*.env
+*.env_postgre/
+*.env_mysql/
+.env
+.env/*
+env/
+db.sqlite3
+*.sqlite3
+**/__pycache__/*
