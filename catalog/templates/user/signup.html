@@ -1,9 +1,22 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block css %}{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
+<div class="container">
+    <form method="post" action="#">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <button class="btn btn-primary" type="submit">Sign up</button>
+    </form>
+</div>
 {% endblock %}
-
-{% block js %}{% endblock %}
