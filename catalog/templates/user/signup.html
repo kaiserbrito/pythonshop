@@ -5,18 +5,19 @@
 
 {% block content %}
 <div class="container">
-    <form method="post" action="#">
+    <div class="col-md-8 col-md-offset-2">
+        <form class="form-horizontal" method="post" action="#">
         {% csrf_token %}
         {% for field in form %}
-        <div class="form-group">
-            {{ field.label_tag }}<br>
-            {{ field }}
-            {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
-            {% endfor %}
-        </div>
+
+            <div class="form-group">
+                {{ field.label }}
+                <input class="form-control" type="text" name="{{ field.name }}">
+            </div>
+
         {% endfor %}
         <button class="btn btn-primary" type="submit">Sign up</button>
-    </form>
+        </form>
+    </div>
 </div>
 {% endblock %}
